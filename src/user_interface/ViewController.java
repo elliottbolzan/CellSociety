@@ -49,7 +49,8 @@ public class ViewController {
 	private ResourceBundle myResources = ResourceBundle.getBundle("UIStrings");
 
 	/**
-	 * This method is automatically called from Main.
+	 * This method is automatically called from Main. It sets up the behavior of
+	 * the primary window.
 	 * 
 	 * @param stage
 	 *            the main window.
@@ -132,6 +133,25 @@ public class ViewController {
 	}
 
 	/**
+	 * Shuffles the cells and reloads the current simulation.
+	 */
+	public void shuffleGrid() {
+		stop();
+		mySimulationController.shuffle();
+		myGraph.clear();
+		updateGrids();
+	}
+
+	/**
+	 * Updates the visualizations.
+	 */
+	private void updateGrids() {
+		for (SimulationView view : mySimulationViews) {
+			view.update();
+		}
+	}
+
+	/**
 	 * Creates a new simulation, but does not add it to the simulation
 	 * controller.
 	 * 
@@ -145,7 +165,8 @@ public class ViewController {
 	}
 
 	/**
-	 * Displays the simulation created by the user.
+	 * Displays the simulation created by the user, by adding it to a simulation
+	 * controller and updating its display grid.
 	 * 
 	 * @param simulation
 	 *            The simulation to be displayed.
@@ -153,11 +174,8 @@ public class ViewController {
 	public void displaySimulation(Simulation simulation) {
 		simulation.setup();
 		mySimulationController.add(simulation);
-		DisplayGrid grid = new DisplayGrid(this, simulation, GRID_SIZE,
-				simulation.getSettings().getParameter("cellType"),
-				Boolean.parseBoolean(simulation.getSettings().getParameter("outlineGrid")),
-				simulation.getSettings().getIntParameter("cellSize"));
-		grid.update(simulation.getGrid());
+		DisplayGrid grid = new DisplayGrid(this, simulation, GRID_SIZE);
+		grid.update();
 		mySimulationViews.add(createSimulationView(simulation, grid));
 	}
 
@@ -186,26 +204,8 @@ public class ViewController {
 	}
 
 	/**
-	 * Shuffles the cells and reloads the current simulation.
-	 */
-	public void shuffleGrid() {
-		stop();
-		mySimulationController.shuffle();
-		myGraph.clear();
-		updateGrids();
-	}
-
-	/**
-	 * Updates the visualizations.
-	 */
-	private void updateGrids() {
-		for (SimulationView view : mySimulationViews) {
-			view.update();
-		}
-	}
-
-	/**
-	 * Handles a click on a cell, if the simulation has been launched and is currently paused.
+	 * Handles a click on a cell, if the simulation has been launched and is
+	 * currently paused.
 	 * 
 	 * @param graphicCell
 	 *            The cell that was clicked.
@@ -218,21 +218,22 @@ public class ViewController {
 			createStateDialog(states, graphicCell);
 		}
 	}
-	
+
 	/**
-	 * Creates a dialog in which the user can choose the state.
-	 * Upon the user's response, accordingly updates the state.
+	 * Creates a dialog in which the user can choose the state. Upon the user's
+	 * response, accordingly updates the state.
 	 * 
-	 * @param states A map from state names to State objects.
+	 * @param states
+	 *            A map from state names to State objects.
 	 * @param graphicCell
 	 *            The cell that was clicked.
 	 */
 	private void createStateDialog(Map<String, State> states, GraphicPolygon graphicCell) {
 		ChoiceDialog<String> dialog = new ChoiceDialog<>(GraphicPolygon.getStateName(states, graphicCell),
 				states.keySet());
-		dialog.setTitle("State");
-		dialog.setHeaderText("Each cell can have several states.");
-		dialog.setContentText("Choose your cell's state:");
+		dialog.setTitle(myResources.getString("StateDialogTitle"));
+		dialog.setHeaderText(myResources.getString("StateDialogHeader"));
+		dialog.setContentText(myResources.getString("StateDialogContent"));
 		Optional<String> result = dialog.showAndWait();
 		result.ifPresent(picked -> {
 			graphicCell.update(states.get(picked));

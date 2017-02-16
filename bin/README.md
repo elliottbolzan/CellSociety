@@ -1,3 +1,3 @@
 # cellsociety 
 
-Put your source code, resources, and property files here.
+Put your example and test XML files here.
