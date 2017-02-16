@@ -34,6 +34,16 @@ import javafx.scene.layout.CornerRadii;
  *         it controls the control panel, graphing mechanism, and collection of
  *         SimulationViews. It uses a BorderPane to display the different user
  *         interface components.
+ * 
+ *         I think this code is well designed because it has one, unified
+ *         purpose: to control and present views to the user.
+ * 
+ *         Furthermore, each method has its own, single focus. Methods are short
+ *         and reusable.
+ * 
+ *         As much as possible, this high-level UI element does not focus on the
+ *         design implementations of lower-level classes, but simply gives
+ *         orders.
  */
 public class ViewController {
 
