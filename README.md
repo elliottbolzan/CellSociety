@@ -1,7 +1,7 @@
 Cell Society
 ==========
 
-A team project (3 person group) for Duke's Computer Science 308 (Design and Implementation). For this second project, we built a cellular-automata simulation system (approximately 3400 lines of code). This program is capable of modelling wildfires, inner-city demographics, ecosystem development, and many more phenomena.
+A team project (3-person group) for Duke's Computer Science 308 (Design and Implementation). For this second project, we built a cellular-automata simulation system (approximately 3400 lines of code). This program is capable of modeling wildfires, inner-city demographics, ecosystem development, and many more phenomena.
 
 ![](images/wildfire_status.png)
 
