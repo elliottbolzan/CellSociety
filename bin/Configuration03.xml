@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<data>
+  <delay>200</delay>
+  <gridSize>12</gridSize>
+  <cellType>Triangle</cellType>
+  <cellDistribution>Probabilistic</cellDistribution>
+  <author>Elliott Bolzan</author>
+  <outlineGrid>true</outlineGrid>
+  <numberOfNeighbors>12</numberOfNeighbors>
+  <locations>
+		0, 1
+		2, 1
+	</locations>
+  <gridEdge>Bounded</gridEdge>
+  <cellSize>50</cellSize>
+</data>
