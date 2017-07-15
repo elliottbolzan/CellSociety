@@ -29,18 +29,17 @@ public class DisplayGrid extends ScrollPane {
 	private HashMap<Point, GraphicPolygon> cells = new HashMap<Point, GraphicPolygon>();
 	private Group root = new Group();
 
-	public DisplayGrid(ViewController viewController, Simulation simulation, int sizeInPixels, String gridType,
-			Boolean outlined, int cellSize) {
+	public DisplayGrid(ViewController viewController, Simulation simulation, int sizeInPixels) {
 		this.viewController = viewController;
 		this.simulation = simulation;
 		this.sizeInPixels = sizeInPixels;
 		this.sizeInCells = simulation.getGrid().getSize();
-		this.outlined = outlined;
-		this.cellSize = cellSize;
+		this.outlined = Boolean.parseBoolean(simulation.getSettings().getParameter("outlineGrid"));
+		this.cellSize = simulation.getSettings().getIntParameter("cellSize");
 		setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
 		setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
 		setContent(root);
-		createCells(gridType);
+		createCells(simulation.getSettings().getParameter("cellType"));
 	}
 
 	public int getSizeInCells() {
@@ -76,7 +75,8 @@ public class DisplayGrid extends ScrollPane {
 	/**
 	 * Update the colors of the visual grid.
 	 */
-	public void update(Grid grid) {
+	public void update() {
+		Grid grid = simulation.getGrid();
 		responsive = true;
 		for (int i = 0; i < sizeInCells; i++) {
 			for (int j = 0; j < sizeInCells; j++) {

@@ -37,7 +37,7 @@ public class SimulationView extends Stage {
 	 * Updates the visualization.
 	 */
 	public void update() {
-		grid.update(simulation.getGrid());
+		grid.update();
 	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * @author nikita This is the superclass for all types of games. This class
  *         handles XML parsing as well as storing variables parsed in from XML.

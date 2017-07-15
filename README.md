@@ -1,28 +1,17 @@
-Cell Society Team 18 README
+Cell Society
 ==========
 
-**Note** - the last commit on Monday morning was just adding `.classpath` and `.project files` for the convenience of the graders, so that they wouldn't have to set up the project source folders manually.
- 
-**Names of all people who worked on the project:**
+A team project (3 person group) for Duke's Computer Science 308 (Design and Implementation). For this second project, we built a cellular-automata simulation system (approximately 3400 lines of code). This program is capable of modelling wildfires, inner-city demographics, ecosystem development, and many more phenomena.
 
-Elliott Bolzan (eab91), Sam Schwaller (scs51), Nikita Zemlevskiy (naz7).
+![](images/wildfire_status.png)
 
-**Date you started, date you finished, and an estimate of the number of hours worked on the project:**
+![](images/wildfire_1.png)
 
-Started 1/28, completed 2/12. Hours worked: Elliott and Nikita: 50 each.
+![](images/wildfire_2.png)
 
-**Each person's role in developing the project:**
+![](images/segregation_1.png)
 
-- Elliott Bolzan: backend/frontend/testing.
-- Nikita Zemlevskiy: backend/frontend/testing.
-- Sam Schwaller: frontend/testing.
-
-**Any books, papers, online, or human resources that you used in developing the project:**
-
-- Stack Overflow for XML parsing and general questions.
--  Code borrowed from Robert Duvall's labs for pieces of XML parsing and user interface elements.
--  Code from JavaFX tutorials found online to create TableView, ToggleButton, and Slider.
-
+![](images/segregation_2.png)
 
 **Files used to start the project (the class(es) containing main):**
 
@@ -64,15 +53,3 @@ More specifically:
 - Clicking `Start` will resume the simulation.
 - If you wish to step through one iteration of the simulation, stop it, then click `Step`. 
 - If you wish to restart the simulation according to a new configuration, click `Reload`. 
-
-**Any known bugs, crashes, or problems with the project's functionality:**
-
-Project is fully functional, as described above. 
-
-**Any extra features included in the project:**
-
-Some extra features are described above under information. 
-
-**Your impressions of the assignment to help improve it in the future:**
-
-Overall, this was a fun assignment and was a good team work experience. It helped that some of the simulations, `Segregation` specifically, had interesting sociological and biological implications!
